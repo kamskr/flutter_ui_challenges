@@ -84,12 +84,18 @@ class _ClockPainter extends CustomPainter {
       ..strokeWidth = 1;
     var outerCircleRadius = radius;
     var innerCircleRadius = radius - 30;
-    for (double i = 0; i < 360; i += 30) {
+    for (double i = 0; i < 360; i += 15) {
       var offset = -4;
       var x1 = centerX + outerCircleRadius * cos((i + offset) * pi / 180 - 90);
       var y1 = centerX + outerCircleRadius * sin((i + offset) * pi / 180 - 90);
-      var x2 = centerX + innerCircleRadius * cos((i + offset) * pi / 180 - 90);
-      var y2 = centerX + innerCircleRadius * sin((i + offset) * pi / 180 - 90);
+
+      int circleOffset = i % 30 == 0 ? 0 : -15;
+      var x2 = centerX +
+          (innerCircleRadius - circleOffset) *
+              cos((i + offset) * pi / 180 - 90);
+      var y2 = centerX +
+          (innerCircleRadius - circleOffset) *
+              sin((i + offset) * pi / 180 - 90);
       canvas.drawLine(Offset(x1, y1), Offset(x2, y2), indicatorsBrush);
     }
 
