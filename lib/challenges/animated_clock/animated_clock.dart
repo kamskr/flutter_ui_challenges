@@ -191,10 +191,12 @@ class _ClockPainter extends CustomPainter {
     var hourArrowLength = 80;
     var hourArrowX = centerX +
         hourArrowLength *
-            cos((dateTime.hour * 30 + dateTime.minute * 0.5) * pi / 180 - 90);
+            cos(((dateTime.hour + 1) * 30 + dateTime.minute * 0.5) * pi / 180 -
+                90);
     var hourArrowY = centerX +
         hourArrowLength *
-            sin((dateTime.hour * 30 + dateTime.minute * 0.5) * pi / 180 - 90);
+            sin(((dateTime.hour + 1) * 30 + dateTime.minute * 0.5) * pi / 180 -
+                90);
 
     canvas.drawLine(center, Offset(hourArrowX, hourArrowY), hourArrowBrush);
 
@@ -207,9 +209,9 @@ class _ClockPainter extends CustomPainter {
 
     var minArrowLength = 100;
     var minArrowX = centerX +
-        minArrowLength * cos((dateTime.minute + 5) * 6 * pi / 180 - 90);
+        minArrowLength * cos((dateTime.minute + 4) * 6 * pi / 180 - 90);
     var minArrowY = centerX +
-        minArrowLength * sin(((dateTime.minute + 5) * 6) * pi / 180 - 90);
+        minArrowLength * sin(((dateTime.minute + 4) * 6) * pi / 180 - 90);
 
     canvas.drawLine(center, Offset(minArrowX, minArrowY), minuteArrowBrush);
 
