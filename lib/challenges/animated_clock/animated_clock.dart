@@ -82,46 +82,97 @@ class _ClockPainter extends CustomPainter {
       ..strokeWidth = 1;
     var outerCircleRadius = radius;
     var innerCircleRadius = radius - 30;
-    for (double i = 0; i < 360; i += 22.5) {
-      var x1 = centerX + outerCircleRadius * cos(i * pi / 180 - 90);
-      var y1 = centerX + outerCircleRadius * sin(i * pi / 180 - 90);
-      var x2 = centerX + innerCircleRadius * cos(i * pi / 180 - 90);
-      var y2 = centerX + innerCircleRadius * sin(i * pi / 180 - 90);
+    for (double i = 0; i < 360; i += 30) {
+      var offset = -4;
+      var x1 = centerX + outerCircleRadius * cos((i + offset) * pi / 180 - 90);
+      var y1 = centerX + outerCircleRadius * sin((i + offset) * pi / 180 - 90);
+      var x2 = centerX + innerCircleRadius * cos((i + offset) * pi / 180 - 90);
+      var y2 = centerX + innerCircleRadius * sin((i + offset) * pi / 180 - 90);
       canvas.drawLine(Offset(x1, y1), Offset(x2, y2), indicatorsBrush);
     }
 
     // Numbers
-    // const textStyle = TextStyle(
-    //   color: Colors.black,
-    //   fontSize: 30,
-    // );
+    const textStyle = TextStyle(
+      color: Colors.black,
+      fontSize: 30,
+    );
 
-    // void drawText(String text, Offset offset) {
-    //   final textSpan = TextSpan(
-    //     text: text,
-    //     style: textStyle,
-    //   );
-    //   final textPainter = TextPainter(
-    //     text: textSpan,
-    //     textDirection: TextDirection.ltr,
-    //     textAlign: TextAlign.center,
-    //   );
-    //   textPainter.layout(
-    //     minWidth: 0,
-    //     maxWidth: size.width,
-    //   );
-    //   textPainter.paint(canvas, offset);
-    // }
+    void drawText(String text, Offset offset) {
+      final textSpan = TextSpan(
+        text: text,
+        style: textStyle,
+      );
+      final textPainter = TextPainter(
+        text: textSpan,
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center,
+      );
+      textPainter.layout();
+      textPainter.paint(canvas, offset);
+    }
 
-    // var counter = 1;
-    // var numberDistance = 100;
+    var counter = 1;
+    var numberDistance = 100;
 
-    // for (double i = 0; i < 360; i += 30) {
-    //   var x = centerX + numberDistance * cos(i * pi / 180 - 90) - 10;
-    //   var y = centerY + numberDistance * sin(i * pi / 180 - 90);
-    //   drawText('$counter', Offset(x, y));
-    //   counter++;
-    // }
+    for (double i = 0; i < 360; i += 30) {
+      var offset = 53;
+      var textOffsetX = 0;
+      var textOffsetY = 0;
+      switch (counter) {
+        case 1:
+          textOffsetX = -5;
+          textOffsetY = -15;
+          break;
+        case 2:
+          textOffsetX = -5;
+          textOffsetY = -15;
+          break;
+        case 3:
+          textOffsetX = -5;
+          textOffsetY = -13;
+          break;
+        case 4:
+          textOffsetX = -10;
+          textOffsetY = -10;
+          break;
+        case 5:
+          textOffsetX = -10;
+          textOffsetY = -12;
+          break;
+        case 6:
+          textOffsetX = -15;
+          textOffsetY = -15;
+          break;
+        case 7:
+          textOffsetX = -15;
+          textOffsetY = -15;
+          break;
+        case 8:
+          textOffsetX = -15;
+          textOffsetY = -17;
+          break;
+        case 9:
+          textOffsetX = -15;
+          textOffsetY = -25;
+          break;
+        case 10:
+          textOffsetX = -15;
+          textOffsetY = -25;
+          break;
+        case 11:
+          textOffsetX = -10;
+          textOffsetY = -20;
+          break;
+        case 12:
+          textOffsetX = -10;
+          textOffsetY = -20;
+          break;
+      }
+      var x = centerX + numberDistance * cos((i + offset) * pi / 180 - 90);
+      var y = centerY + numberDistance * sin((i + offset) * pi / 180 - 90);
+      drawText('$counter', Offset(x + textOffsetX, y + textOffsetY));
+      counter++;
+    }
 
     /// Outline of the clock
     var outlineBrush = Paint()
@@ -155,10 +206,10 @@ class _ClockPainter extends CustomPainter {
       ..strokeWidth = 10;
 
     var minArrowLength = 100;
-    var minArrowX =
-        centerX + minArrowLength * cos(dateTime.minute * 6 * pi / 180 - 90);
-    var minArrowY =
-        centerX + minArrowLength * sin(dateTime.minute * 6 * pi / 180 - 90);
+    var minArrowX = centerX +
+        minArrowLength * cos((dateTime.minute + 5) * 6 * pi / 180 - 90);
+    var minArrowY = centerX +
+        minArrowLength * sin(((dateTime.minute + 5) * 6) * pi / 180 - 90);
 
     canvas.drawLine(center, Offset(minArrowX, minArrowY), minuteArrowBrush);
 
