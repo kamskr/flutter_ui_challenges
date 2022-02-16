@@ -1,3 +1,7 @@
+.firebase
+.firebaserc
+firebase-debug.log
+
 # Miscellaneous
 *.class
 *.log

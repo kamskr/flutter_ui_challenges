@@ -52,9 +52,11 @@ class __ClockState extends State<_Clock> {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        width: 600,
-        height: 600,
-        child: CustomPaint(painter: _ClockPainter()),
+        width: 300,
+        height: 300,
+        child: CustomPaint(
+          painter: _ClockPainter(),
+        ),
       ),
     );
   }
@@ -68,7 +70,7 @@ class _ClockPainter extends CustomPainter {
     var centerX = size.width / 2;
     var centerY = size.height / 2;
     var center = Offset(centerX, centerY);
-    var radius = min(centerX, centerY) / 2;
+    var radius = max(centerX, centerY);
 
     /// Board of the clock
     var fillBrush = Paint()..color = const Color(0xFFD1D1D1);
