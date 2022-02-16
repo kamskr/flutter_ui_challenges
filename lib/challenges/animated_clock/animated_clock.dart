@@ -193,11 +193,15 @@ class _ClockPainter extends CustomPainter {
     var hourArrowLength = 80;
     var hourArrowX = centerX +
         hourArrowLength *
-            cos(((dateTime.hour + 1) * 30 + dateTime.minute * 0.5) * pi / 180 -
+            cos(((dateTime.hour + 0.85) * 30 + dateTime.minute * 0.5) *
+                    pi /
+                    180 -
                 90);
     var hourArrowY = centerX +
         hourArrowLength *
-            sin(((dateTime.hour + 1) * 30 + dateTime.minute * 0.5) * pi / 180 -
+            sin(((dateTime.hour + 0.85) * 30 + dateTime.minute * 0.5) *
+                    pi /
+                    180 -
                 90);
 
     canvas.drawLine(center, Offset(hourArrowX, hourArrowY), hourArrowBrush);
@@ -211,9 +215,9 @@ class _ClockPainter extends CustomPainter {
 
     var minArrowLength = 100;
     var minArrowX = centerX +
-        minArrowLength * cos((dateTime.minute + 4) * 6 * pi / 180 - 90);
+        minArrowLength * cos((dateTime.minute + 4.3) * 6 * pi / 180 - 90);
     var minArrowY = centerX +
-        minArrowLength * sin(((dateTime.minute + 4) * 6) * pi / 180 - 90);
+        minArrowLength * sin(((dateTime.minute + 4.3) * 6) * pi / 180 - 90);
 
     canvas.drawLine(center, Offset(minArrowX, minArrowY), minuteArrowBrush);
 
@@ -224,10 +228,10 @@ class _ClockPainter extends CustomPainter {
       ..strokeCap = StrokeCap.round
       ..strokeWidth = 5;
     var secArrowLength = 120;
-    var secArrowX =
-        centerX + secArrowLength * cos(dateTime.second * 6 * pi / 180 - 90);
-    var secArrowY =
-        centerX + secArrowLength * sin(dateTime.second * 6 * pi / 180 - 90);
+    var secArrowX = centerX +
+        secArrowLength * cos((dateTime.second + 4.3) * 6 * pi / 180 - 90);
+    var secArrowY = centerX +
+        secArrowLength * sin((dateTime.second + 4.3) * 6 * pi / 180 - 90);
     canvas.drawLine(center, Offset(secArrowX, secArrowY), secondArrowBrush);
 
     /// Center dot
