@@ -25,7 +25,8 @@ class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
   static const Map<String, Widget> _tileTitles = {
-    'Animated clock': AnimatedClock(),
+    'Animated Clock': AnimatedClock(),
+    'Render Object Playground': RenderObjectPlayground(),
   };
 
   @override
