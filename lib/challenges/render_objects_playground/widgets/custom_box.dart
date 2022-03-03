@@ -100,6 +100,9 @@ class RenderCustomBox extends RenderBox {
   }
 
   @override
+  bool get isRepaintBoundary => true;
+
+  @override
   CustomColumnParentData? get parentData {
     if (super.parentData == null) {
       return null;
