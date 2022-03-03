@@ -33,6 +33,9 @@ class _PlaygroundState extends State<Playground>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Render objects playground'),
+      ),
       body: Stack(
         children: [
           CustomColumn(
