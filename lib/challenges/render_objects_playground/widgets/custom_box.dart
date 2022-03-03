@@ -99,6 +99,8 @@ class RenderCustomBox extends RenderBox {
     _tapGestureRecognizer.onTap = value;
   }
 
+// Without this param set to true, the whole widget tree will
+// be updated on animation
   @override
   bool get isRepaintBoundary => true;
 
@@ -130,6 +132,16 @@ class RenderCustomBox extends RenderBox {
   void detach() {
     _tapGestureRecognizer.dispose();
     super.detach();
+  }
+
+  // Seo / accessibility
+  @override
+  void describeSemanticsConfiguration(SemanticsConfiguration config) {
+    config
+      ..isButton = true
+      ..textDirection = TextDirection.ltr
+      ..hint = "Trigger spinning animation"
+      ..onTap = onTap;
   }
 
   @override
