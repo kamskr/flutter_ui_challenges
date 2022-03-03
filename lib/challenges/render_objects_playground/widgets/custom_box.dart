@@ -111,6 +111,7 @@ class RenderCustomBox extends RenderBox {
   }
 
   late final TapGestureRecognizer _tapGestureRecognizer;
+  late final LongPressGestureRecognizer _longPressGestureRecognizer;
 
   @override
   void attach(PipelineOwner owner) {
@@ -118,6 +119,8 @@ class RenderCustomBox extends RenderBox {
     parentData!.flex = flex;
     _tapGestureRecognizer = TapGestureRecognizer(debugOwner: this)
       ..onTap = onTap;
+    _longPressGestureRecognizer = LongPressGestureRecognizer(debugOwner: this)
+      ..onLongPress = onTap;
   }
 
   @override
@@ -145,6 +148,7 @@ class RenderCustomBox extends RenderBox {
 
     if (event is PointerDownEvent) {
       _tapGestureRecognizer.addPointer(event);
+      _longPressGestureRecognizer.addPointer(event);
     }
   }
 
