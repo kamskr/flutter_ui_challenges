@@ -21,9 +21,10 @@ class Playground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomColumn(
+        alignment: CustomColumnAlignment.center,
         children: const [
           CustomExpanded(
-            flex: 1,
+            flex: 2,
             child: SizedBox(),
           ),
           Padding(
@@ -41,9 +42,9 @@ class Playground extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          CustomExpanded(
-            flex: 2,
-            child: SizedBox(),
+          CustomBox(
+            flex: 3,
+            color: Color(0xFF3B3561),
           ),
           // Spacer(),
         ],
