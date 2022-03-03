@@ -33,44 +33,57 @@ class _PlaygroundState extends State<Playground>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomColumn(
-        alignment: CustomColumnAlignment.center,
+      body: Stack(
         children: [
-          const CustomExpanded(
-            flex: 2,
-            child: SizedBox(),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(16),
-            child: Text(
-              'Flutter render objects playground',
-              style: TextStyle(fontSize: 32),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(16),
-            child: Text(
-              'A place to test out RenderObjects',
-              textAlign: TextAlign.center,
-            ),
-          ),
-          AnimatedBuilder(
-            animation: _controller,
-            builder: (context, child) {
-              return CustomBox(
-                onTap: () {
-                  if (_controller.isAnimating) {
-                    _controller.stop();
-                    return;
-                  }
-                  _controller.repeat();
+          CustomColumn(
+            alignment: CustomColumnAlignment.center,
+            children: [
+              const CustomExpanded(
+                flex: 2,
+                child: SizedBox(),
+              ),
+              const Padding(
+                padding: EdgeInsets.all(16),
+                child: Text(
+                  'Flutter render objects playground',
+                  style: TextStyle(fontSize: 32),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.all(16),
+                child: Text(
+                  'A place to test out RenderObjects',
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              AnimatedBuilder(
+                animation: _controller,
+                builder: (context, child) {
+                  return CustomBox(
+                    onTap: () {
+                      if (_controller.isAnimating) {
+                        _controller.stop();
+                        return;
+                      }
+                      _controller.repeat();
+                    },
+                    flex: 3,
+                    color: const Color(0xFFa83291),
+                    rotation: _controller.value * 2 * pi,
+                  );
                 },
-                flex: 3,
-                color: const Color(0xFFa83291),
-                rotation: _controller.value * 2 * pi,
-              );
-            },
+              ),
+            ],
+          ),
+          const CustomProxy(
+            child: SizedBox.expand(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+            ),
           ),
         ],
       ),

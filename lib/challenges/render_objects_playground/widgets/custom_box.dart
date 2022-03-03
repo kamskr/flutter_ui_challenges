@@ -101,8 +101,8 @@ class RenderCustomBox extends RenderBox {
 
 // Without this param set to true, the whole widget tree will
 // be updated on animation
-  @override
-  bool get isRepaintBoundary => true;
+  // @override
+  // bool get isRepaintBoundary => true;
 
   @override
   CustomColumnParentData? get parentData {
