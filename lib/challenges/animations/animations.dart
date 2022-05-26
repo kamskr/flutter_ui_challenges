@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_challenges/challenges/animations/explicit_animations/explicit_animations.dart';
 import 'package:flutter_ui_challenges/widgets/widgets.dart';
 
 import 'implicit_animations/implicit_animations.dart';
@@ -11,6 +12,7 @@ class Animations extends StatelessWidget {
 
   static const Map<String, Widget> _tileTitles = {
     "Implicit": ImplicitAnimationsPage(),
+    "Explicit": ExplicitAnimations(),
   };
 
   @override
