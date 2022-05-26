@@ -14,7 +14,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        brightness: Brightness.dark,
+        brightness: Brightness.light,
+        appBarTheme: const AppBarTheme(
+          foregroundColor: Colors.black,
+          color: Colors.white,
+          elevation: 0,
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
+        ),
       ),
       home: const Home(),
     );
@@ -25,6 +33,7 @@ class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
   static const Map<String, Widget> _tileTitles = {
+    'Animations': Animations(),
     'Animated Clock': AnimatedClock(),
     'Render Object Playground': RenderObjectPlayground(),
   };
@@ -36,8 +45,6 @@ class Home extends StatelessWidget {
         title: const Text(
           'Flutter UI Challenges',
         ),
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
       ),
       body: const ListScreen(
         tileTitles: _tileTitles,
