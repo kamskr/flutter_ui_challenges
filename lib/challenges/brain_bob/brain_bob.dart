@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_ui_challenges/challenges/brain_bob/brain_bob_home.dart';
 import 'package:flutter_ui_challenges/widgets/view_wrapper.dart';
 
 final colors = {
@@ -27,13 +28,11 @@ class BrainBobView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: const [
-          _Background(),
-          _WelcomeView(),
-        ],
-      ),
+    return Stack(
+      children: const [
+        _Background(),
+        _WelcomeView(),
+      ],
     );
   }
 }
@@ -90,8 +89,11 @@ class _StartButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(50),
         ),
+        elevation: 0,
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context).push(BrainBobHome.route());
+      },
       child: const Text("Let's start"),
     );
   }
