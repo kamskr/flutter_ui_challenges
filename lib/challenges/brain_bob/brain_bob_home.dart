@@ -66,21 +66,138 @@ class _HomeBody extends StatelessWidget {
           ),
           _CategoryButtons(),
           SizedBox(
-            height: 20,
+            height: 30,
           ),
           _VocabularyBox(),
           SizedBox(
-            height: 200,
+            height: 30,
           ),
-          Text('Test'),
-          SizedBox(
-            height: 200,
-          ),
-          Text('Test'),
-          SizedBox(
-            height: 200,
-          ),
+          _RecommendedTitle(),
+          SizedBox(height: 20),
+          _RecommendedItemsList(),
         ],
+      ),
+    );
+  }
+}
+
+class _RecommendedItemsList extends StatelessWidget {
+  const _RecommendedItemsList({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: const [
+        _RecommendedItem(
+          name: 'Chatting',
+          minutes: 5,
+          iconColor: Color(0xffF77067),
+          checked: true,
+        ),
+        SizedBox(height: 16),
+        _RecommendedItem(
+          name: 'Listen',
+          minutes: 2,
+          iconColor: Color(0xff5943BE),
+        ),
+        SizedBox(height: 16),
+        _RecommendedItem(
+          name: 'Speak',
+          minutes: 3,
+          iconColor: Color(0xffF78C51),
+        ),
+        SizedBox(height: 16),
+      ],
+    );
+  }
+}
+
+class _RecommendedItem extends StatelessWidget {
+  const _RecommendedItem({
+    Key? key,
+    required this.iconColor,
+    required this.name,
+    required this.minutes,
+    this.checked = false,
+  }) : super(key: key);
+
+  final Color iconColor;
+  final String name;
+  final int minutes;
+  final bool checked;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: colors["background"],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: iconColor,
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(12),
+                      child: Icon(
+                        Icons.chat,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        name,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                      Text('$minutes minutes'),
+                    ],
+                  )
+                ],
+              ),
+              Icon(
+                Icons.bookmark,
+                color: checked ? Colors.black : Colors.grey,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _RecommendedTitle extends StatelessWidget {
+  const _RecommendedTitle({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16),
+      child: Text(
+        'Recommended',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 18,
+        ),
       ),
     );
   }
