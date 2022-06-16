@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.flutter_ui_chellanges">
+    package="com.example.flutter_ui_challenges">
    <application
-        android:label="flutter_ui_chellanges"
+        android:label="flutter_ui_challenges"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

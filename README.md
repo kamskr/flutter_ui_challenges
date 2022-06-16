@@ -1,4 +1,4 @@
-# flutter_ui_chellanges
+# flutter_ui_challenges
 
 A playground for building UIs!
 

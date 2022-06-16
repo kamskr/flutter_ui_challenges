@@ -1,4 +1,4 @@
-package com.example.flutter_ui_chellanges
+package com.example.flutter_ui_challenges
 
 import io.flutter.embedding.android.FlutterActivity
 
