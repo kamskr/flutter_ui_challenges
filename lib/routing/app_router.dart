@@ -7,6 +7,7 @@ class AppRoutes {
   static const String home = '/';
   static const String animatedClock = '/animated-clock';
   static const String renderObjectPlayground = '/render-object-playground';
+  static const String brainBob = '/brain-bob';
 }
 
 class AppRouter {
@@ -25,6 +26,11 @@ class AppRouter {
         path: AppRoutes.renderObjectPlayground,
         builder: (BuildContext context, GoRouterState state) =>
             const RenderObjectPlayground(),
+      ),
+      GoRoute(
+        path: AppRoutes.brainBob,
+        builder: (BuildContext context, GoRouterState state) =>
+            const BrainBob(),
       ),
     ],
     urlPathStrategy: UrlPathStrategy.path,

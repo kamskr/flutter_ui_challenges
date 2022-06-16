@@ -9,6 +9,7 @@ class Home extends StatelessWidget {
   static const Map<String, String> _tileTitles = {
     'Animated Clock': AppRoutes.animatedClock,
     'RenderObject Playground': AppRoutes.renderObjectPlayground,
+    'BrainBob': AppRoutes.brainBob,
   };
 
   @override

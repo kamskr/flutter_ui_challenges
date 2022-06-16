@@ -9,11 +9,13 @@ class ViewWrapper extends StatelessWidget {
     required this.title,
     required this.child,
     this.backgroundColor,
+    this.hideHomeButton = false,
   }) : super(key: key);
 
   final String title;
   final Widget child;
   final Color? backgroundColor;
+  final bool hideHomeButton;
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +26,12 @@ class ViewWrapper extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.home),
-          onPressed: () => context.go(AppRoutes.home),
-        ),
+        leading: hideHomeButton
+            ? null
+            : IconButton(
+                icon: const Icon(Icons.home),
+                onPressed: () => context.go(AppRoutes.home),
+              ),
         title: Text(title),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
