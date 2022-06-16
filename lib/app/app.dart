@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_challenges/routing/app_router.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final _router = AppRouter().goRouter;
+
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         brightness: Brightness.light,
@@ -17,31 +20,9 @@ class App extends StatelessWidget {
           ),
         ),
       ),
-      home: const Text('home'),
+      routeInformationProvider: _router.routeInformationProvider,
+      routeInformationParser: _router.routeInformationParser,
+      routerDelegate: _router.routerDelegate,
     );
   }
 }
-
-// class Home extends StatelessWidget {
-//   const Home({Key? key}) : super(key: key);
-
-//   static const Map<String, Widget> _tileTitles = {
-//     'Animations': Animations(),
-//     'Animated Clock': AnimatedClock(),
-//     'Render Object Playground': RenderObjectPlayground(),
-//   };
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text(
-//           'Flutter UI Challenges',
-//         ),
-//       ),
-//       body: const ListScreen(
-//         tileTitles: _tileTitles,
-//       ),
-//     );
-//   }
-// }
