@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:flutter_ui_challenges/widgets/view_wrapper.dart';
 
 final colors = {
@@ -49,52 +50,90 @@ class _WelcomeView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const _Logo(),
-              const SizedBox(height: 280),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
-                child: Text(
-                  'Be ready to learn English easily',
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
+              const SizedBox(height: 20),
+              SvgPicture.asset(
+                'assets/bob_study.svg',
+                height: 240,
               ),
               const SizedBox(height: 20),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
-                child: Text(
-                  'Listen to stories, watch videos and '
-                  'improve your language with BrainBob',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w300,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
+              const _Header(),
+              const SizedBox(height: 20),
+              const _SubHeader(),
               const SizedBox(height: 40),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: colors["primary"],
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 60,
-                    vertical: 30,
-                  ),
-                  textStyle: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                ),
-                onPressed: () {},
-                child: const Text("Let's start"),
-              )
+              const _StartButton()
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _StartButton extends StatelessWidget {
+  const _StartButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        primary: colors["primary"],
+        padding: const EdgeInsets.symmetric(
+          horizontal: 60,
+          vertical: 30,
+        ),
+        textStyle: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+        ),
+      ),
+      onPressed: () {},
+      child: const Text("Let's start"),
+    );
+  }
+}
+
+class _SubHeader extends StatelessWidget {
+  const _SubHeader({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20.0),
+      child: Text(
+        'Listen to stories, watch videos and '
+        'improve your language with BrainBob',
+        style: TextStyle(
+          fontWeight: FontWeight.w300,
+        ),
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+}
+
+class _Header extends StatelessWidget {
+  const _Header({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20.0),
+      child: Text(
+        'Be ready to learn English easily',
+        style: TextStyle(
+          fontSize: 32,
+          fontWeight: FontWeight.bold,
+        ),
+        textAlign: TextAlign.center,
       ),
     );
   }
