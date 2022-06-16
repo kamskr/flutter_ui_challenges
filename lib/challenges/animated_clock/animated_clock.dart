@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_challenges/routing/app_router.dart';
+import 'package:go_router/go_router.dart';
 
 class AnimatedClock extends StatelessWidget {
   const AnimatedClock({Key? key}) : super(key: key);
@@ -23,6 +25,10 @@ class _AnimatedClockView extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFF51A3A3),
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.home),
+          onPressed: () => context.go(AppRoutes.home),
+        ),
         title: const Text('Clock'),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,

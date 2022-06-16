@@ -38,7 +38,7 @@ class ListScreen extends StatelessWidget {
         children: tileTitles.entries
             .map(
               (entry) => ListTile(
-                onTap: () => context.push(entry.value),
+                onTap: () => context.go(entry.value),
                 title: Text(entry.key),
               ),
             )

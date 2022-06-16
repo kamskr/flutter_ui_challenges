@@ -1,6 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_challenges/routing/app_router.dart';
+import 'package:go_router/go_router.dart';
 
 import 'widgets/widgets.dart';
 
@@ -34,6 +36,10 @@ class _PlaygroundState extends State<Playground>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.home),
+          onPressed: () => context.go(AppRoutes.home),
+        ),
         title: const Text('Render objects playground'),
       ),
       body: Stack(
