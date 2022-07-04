@@ -8,6 +8,7 @@ class AppRoutes {
   static const String animatedClock = '/animated-clock';
   static const String renderObjectPlayground = '/render-object-playground';
   static const String brainBob = '/brain-bob';
+  static const String netflixClone = '/netflix-clone';
 }
 
 class AppRouter {
@@ -31,6 +32,11 @@ class AppRouter {
         path: AppRoutes.brainBob,
         builder: (BuildContext context, GoRouterState state) =>
             const BrainBob(),
+      ),
+      GoRoute(
+        path: AppRoutes.netflixClone,
+        builder: (BuildContext context, GoRouterState state) =>
+            const NetflixClone(),
       ),
     ],
     urlPathStrategy: UrlPathStrategy.path,

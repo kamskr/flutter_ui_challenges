@@ -10,6 +10,7 @@ class Home extends StatelessWidget {
     'Animated Clock': AppRoutes.animatedClock,
     'RenderObject Playground': AppRoutes.renderObjectPlayground,
     'BrainBob': AppRoutes.brainBob,
+    'Netflix Clone': AppRoutes.netflixClone,
   };
 
   @override
