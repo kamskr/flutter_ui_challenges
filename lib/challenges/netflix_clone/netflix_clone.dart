@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 
+import 'screens/screens.dart';
+
 class NetflixClone extends StatelessWidget {
   const NetflixClone({Key? key}) : super(key: key);
 
-  static Route route() =>
-      MaterialPageRoute<void>(builder: (_) => const NetflixClone());
-
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('netflix clone'),
+    return MaterialApp(
+      title: "Netflix Clone",
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        scaffoldBackgroundColor: Colors.black,
+      ),
+      home: const HomeScreen(),
     );
   }
 }

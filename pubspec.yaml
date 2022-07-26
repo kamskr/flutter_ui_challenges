@@ -6,7 +6,7 @@ version: 1.0.0+1
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
-  flutter: 3.0.1
+  flutter: 3.0.5
 
 dependencies:
   cupertino_icons: ^1.0.2
@@ -30,10 +30,10 @@ flutter:
   generate: true
   assets:
     - assets/
-    - assets/netflix_clone
+    - assets/netflix_clone/
 
 flutter_gen:
-  output: lib/assets/
+  output: lib/generated/
   line_length: 80
   null_safety: true
 
