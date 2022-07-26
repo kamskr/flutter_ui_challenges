@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../data/data.dart';
 import '../widgets/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -46,6 +47,7 @@ class _HomeScreenViewState extends State<HomeScreenView> {
     final Size screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: PreferredSize(
         preferredSize: Size(
           screenSize.width,
@@ -62,32 +64,11 @@ class _HomeScreenViewState extends State<HomeScreenView> {
       ),
       body: CustomScrollView(
         controller: _scrollController,
-        slivers: [
+        slivers: const [
           SliverToBoxAdapter(
-            child: Container(
-                height: 3000,
-                color: Colors.blue,
-                child: Column(
-                  children: const [
-                    Text('test'),
-                    Text('test'),
-                    Text('test'),
-                    Text('test'),
-                    Text('test'),
-                    Text('test'),
-                    Text('test'),
-                    Text('test'),
-                    Text('test'),
-                    Text('test'),
-                    Text('test'),
-                    Text('test'),
-                    Text('test'),
-                    Text('test'),
-                    Text('test'),
-                    Text('test'),
-                    Text('test'),
-                  ],
-                )),
+            child: ContentHeader(
+              featuredContent: sintelContent,
+            ),
           )
         ],
       ),
