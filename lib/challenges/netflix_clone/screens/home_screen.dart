@@ -47,6 +47,7 @@ class _HomeScreenViewState extends State<HomeScreenView> {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
+      backgroundColor: Colors.black,
       appBar: PreferredSize(
         preferredSize: Size(
           screenSize.width,

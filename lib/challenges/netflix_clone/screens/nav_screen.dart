@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ui_challenges/challenges/netflix_clone/cubits/app_bar_cubit.dart';
@@ -14,10 +15,18 @@ class NavScreen extends StatefulWidget {
 class _NavScreenState extends State<NavScreen> {
   final List<Widget> _screens = [
     const HomeScreen(key: PageStorageKey('homeScreen')),
-    const Scaffold(),
-    const Scaffold(),
-    const Scaffold(),
-    const Scaffold(),
+    const Scaffold(
+      backgroundColor: Colors.black,
+    ),
+    const Scaffold(
+      backgroundColor: Colors.black,
+    ),
+    const Scaffold(
+      backgroundColor: Colors.black,
+    ),
+    const Scaffold(
+      backgroundColor: Colors.black,
+    ),
   ];
 
   final Map<String, IconData> _icons = {
@@ -35,7 +44,18 @@ class _NavScreenState extends State<NavScreen> {
     return Scaffold(
       body: BlocProvider(
         create: (context) => AppBarCubit(),
-        child: _screens[_currentIndex],
+        child: PageTransitionSwitcher(
+          transitionBuilder: (child, primaryAnimation, secondaryAnimation) {
+            return SharedAxisTransition(
+              animation: primaryAnimation,
+              secondaryAnimation: secondaryAnimation,
+              child: child,
+              transitionType: SharedAxisTransitionType.horizontal,
+              fillColor: Colors.black,
+            );
+          },
+          child: _screens[_currentIndex],
+        ),
       ),
       bottomNavigationBar: !Responsive.isDesktop(context)
           ? BottomNavigationBar(
