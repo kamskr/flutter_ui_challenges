@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../cubits/app_bar_cubit.dart';
 import '../data/data.dart';
 import '../widgets/widgets.dart';
 
@@ -23,16 +25,13 @@ class HomeScreenView extends StatefulWidget {
 }
 
 class _HomeScreenViewState extends State<HomeScreenView> {
-  double _scrollOffset = 0;
   final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
     _scrollController.addListener(() {
-      setState(() {
-        _scrollOffset = _scrollController.offset;
-      });
+      context.read<AppBarCubit>().setOffset(_scrollController.offset);
     });
   }
 
@@ -53,8 +52,12 @@ class _HomeScreenViewState extends State<HomeScreenView> {
           screenSize.width,
           50,
         ),
-        child: CustomAppBar(
-          scrollOffset: _scrollOffset,
+        child: BlocBuilder<AppBarCubit, double>(
+          builder: (context, state) {
+            return CustomAppBar(
+              scrollOffset: state,
+            );
+          },
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -74,6 +77,7 @@ class _HomeScreenViewState extends State<HomeScreenView> {
             padding: EdgeInsets.only(top: 20),
             sliver: SliverToBoxAdapter(
               child: Previews(
+                key: PageStorageKey('previews'),
                 title: "Previews",
                 contentList: previews,
               ),
@@ -81,12 +85,14 @@ class _HomeScreenViewState extends State<HomeScreenView> {
           ),
           SliverToBoxAdapter(
             child: ContentList(
+              key: PageStorageKey('myList'),
               title: "My List",
               contentList: myList,
             ),
           ),
           SliverToBoxAdapter(
             child: ContentList(
+              key: PageStorageKey('originals'),
               title: "Netflix Originals",
               contentList: originals,
               isOriginals: true,
@@ -95,6 +101,7 @@ class _HomeScreenViewState extends State<HomeScreenView> {
           SliverPadding(
             padding: EdgeInsets.only(bottom: 20),
             sliver: SliverToBoxAdapter(
+              key: PageStorageKey('trending'),
               child: ContentList(
                 title: "Trending",
                 contentList: trending,
