@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ui_challenges/challenges/netflix_clone/cubits/app_bar_cubit.dart';
 import 'package:flutter_ui_challenges/challenges/netflix_clone/screens/screens.dart';
+import 'package:flutter_ui_challenges/challenges/netflix_clone/widgets/widgets.dart';
 
 class NavScreen extends StatefulWidget {
   const NavScreen({Key? key}) : super(key: key);
@@ -36,35 +37,38 @@ class _NavScreenState extends State<NavScreen> {
         create: (context) => AppBarCubit(),
         child: _screens[_currentIndex],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.black,
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        selectedItemColor: Colors.white,
-        selectedFontSize: 11,
-        unselectedItemColor: Colors.grey,
-        unselectedFontSize: 11,
-        onTap: (index) => setState(() {
-          _currentIndex = index;
-        }),
-        items: [
-          ..._icons
-              .map(
-                (title, icon) => MapEntry<String, BottomNavigationBarItem>(
-                  title,
-                  BottomNavigationBarItem(
-                    icon: Icon(
-                      icon,
-                      size: 30,
-                    ),
-                    label: title,
-                  ),
-                ),
-              )
-              .values
-              .toList()
-        ],
-      ),
+      bottomNavigationBar: !Responsive.isDesktop(context)
+          ? BottomNavigationBar(
+              backgroundColor: Colors.black,
+              type: BottomNavigationBarType.fixed,
+              currentIndex: _currentIndex,
+              selectedItemColor: Colors.white,
+              selectedFontSize: 11,
+              unselectedItemColor: Colors.grey,
+              unselectedFontSize: 11,
+              onTap: (index) => setState(() {
+                _currentIndex = index;
+              }),
+              items: [
+                ..._icons
+                    .map(
+                      (title, icon) =>
+                          MapEntry<String, BottomNavigationBarItem>(
+                        title,
+                        BottomNavigationBarItem(
+                          icon: Icon(
+                            icon,
+                            size: 30,
+                          ),
+                          label: title,
+                        ),
+                      ),
+                    )
+                    .values
+                    .toList()
+              ],
+            )
+          : null,
     );
   }
 }

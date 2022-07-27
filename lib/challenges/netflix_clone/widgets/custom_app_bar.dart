@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_challenges/challenges/netflix_clone/widgets/widgets.dart';
 
 import '../assets.dart';
 
@@ -20,6 +21,22 @@ class CustomAppBar extends StatelessWidget {
         vertical: 10.0,
         horizontal: 24.0,
       ),
+      child: const Responsive(
+        mobile: _CustomAppBarMobile(),
+        desktop: _CustomAppBarDesktop(),
+      ),
+    );
+  }
+}
+
+class _CustomAppBarMobile extends StatelessWidget {
+  const _CustomAppBarMobile({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -36,6 +53,92 @@ class CustomAppBar extends StatelessWidget {
           _AppBarButton(
             title: 'My List',
             onTap: () {},
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _CustomAppBarDesktop extends StatelessWidget {
+  const _CustomAppBarDesktop({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Row(
+        children: [
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Image.asset(Assets.netflixLogo1),
+                const SizedBox(width: 12.0),
+                _AppBarButton(
+                  title: 'Home',
+                  onTap: () {},
+                ),
+                _AppBarButton(
+                  title: 'TV Shows',
+                  onTap: () {},
+                ),
+                _AppBarButton(
+                  title: 'Movies',
+                  onTap: () {},
+                ),
+                _AppBarButton(
+                  title: 'Latests',
+                  onTap: () {},
+                ),
+                _AppBarButton(
+                  title: 'My List',
+                  onTap: () {},
+                ),
+              ],
+            ),
+          ),
+          const Spacer(),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                IconButton(
+                  padding: EdgeInsets.zero,
+                  icon: const Icon(Icons.search),
+                  iconSize: 28,
+                  color: Colors.white,
+                  onPressed: () {},
+                ),
+                _AppBarButton(
+                  title: 'Kids',
+                  onTap: () {},
+                ),
+                _AppBarButton(
+                  title: 'DVD',
+                  onTap: () {},
+                ),
+                IconButton(
+                  padding: EdgeInsets.zero,
+                  icon: const Icon(
+                    Icons.card_giftcard,
+                  ),
+                  iconSize: 28,
+                  color: Colors.white,
+                  onPressed: () {},
+                ),
+                IconButton(
+                  padding: EdgeInsets.zero,
+                  icon: const Icon(
+                    Icons.notifications,
+                  ),
+                  iconSize: 28,
+                  color: Colors.white,
+                  onPressed: () {},
+                ),
+              ],
+            ),
           ),
         ],
       ),
