@@ -12,5 +12,5 @@ Animated clock created with [CustomPaint](https://api.flutter.dev/flutter/widget
 ## BrainBob
 Implementation of [cool design from Dribble](https://dribbble.com/shots/15865091-The-Brainbob-mobile-app).
 
-![BrainBob](./assets/readme/brain_bob/brain_bob.png)
+![BrainBob](./assets/readme/brain_bob/brain_bob.jpg)
 
