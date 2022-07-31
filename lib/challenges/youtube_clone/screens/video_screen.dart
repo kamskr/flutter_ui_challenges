@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_ui_challenges/challenges/youtube_clone/screens/nav_screen.dart';
 import 'package:miniplayer/miniplayer.dart';
 
+import '../widgets/widgets.dart';
+
 class VideoScreen extends StatelessWidget {
   const VideoScreen({Key? key}) : super(key: key);
 
@@ -47,6 +49,7 @@ class VideoScreen extends StatelessWidget {
                           value: 0.4,
                           valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
                         ),
+                        VideoInfo(video: _selectedVideo),
                       ],
                     ),
                   );
