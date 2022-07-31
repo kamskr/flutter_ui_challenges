@@ -10,9 +10,13 @@ class VideoCard extends ConsumerWidget {
   const VideoCard({
     Key? key,
     required this.video,
+    this.hasPadding = false,
+    this.onTap,
   }) : super(key: key);
 
   final Video video;
+  final bool hasPadding;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -23,20 +27,24 @@ class VideoCard extends ConsumerWidget {
             .read(miniplayerControllerProvider.state)
             .state
             .animateToHeight(state: PanelState.MAX);
+        if (onTap != null) onTap!();
       },
       child: Column(
         children: [
           Stack(
             children: [
-              Image.network(
-                video.thumbnailUrl,
-                height: 220,
-                width: double.infinity,
-                fit: BoxFit.cover,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: hasPadding ? 12 : 0),
+                child: Image.network(
+                  video.thumbnailUrl,
+                  height: 220,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
               ),
               Positioned(
                 bottom: 8,
-                right: 8,
+                right: hasPadding ? 20 : 8,
                 child: Container(
                   padding: const EdgeInsets.all(4),
                   color: Colors.black,
