@@ -11,6 +11,7 @@ class Home extends StatelessWidget {
     'RenderObject Playground': AppRoutes.renderObjectPlayground,
     'BrainBob': AppRoutes.brainBob,
     'Netflix Clone': AppRoutes.netflixClone,
+    'Youtube Clone': AppRoutes.youtubeClone,
   };
 
   @override
