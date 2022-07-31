@@ -9,6 +9,7 @@ class AppRoutes {
   static const String renderObjectPlayground = '/render-object-playground';
   static const String brainBob = '/brain-bob';
   static const String netflixClone = '/netflix-clone';
+  static const String youtubeClone = '/youtube-clone';
 }
 
 class AppRouter {
@@ -37,6 +38,11 @@ class AppRouter {
         path: AppRoutes.netflixClone,
         builder: (BuildContext context, GoRouterState state) =>
             const NetflixClone(),
+      ),
+      GoRoute(
+        path: AppRoutes.youtubeClone,
+        builder: (BuildContext context, GoRouterState state) =>
+            const YoutubeClone(),
       ),
     ],
     urlPathStrategy: UrlPathStrategy.path,
