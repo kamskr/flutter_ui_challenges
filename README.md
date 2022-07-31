@@ -14,6 +14,3 @@ Implementation of [cool design from Dribble](https://dribbble.com/shots/15865091
 
 ![BrainBob](./assets/readme/brain_bob/brain_bob.jpg)
 
-## Netflix Clone
-![Netflix desktop](./assets/readme/netflix_clone/netflix_desktop.png)
-<img src="./assets/readme/netflix_clone/netflix_mobile.png"  height="450" />
